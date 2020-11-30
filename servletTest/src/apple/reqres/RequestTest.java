@@ -26,7 +26,7 @@ public class RequestTest extends HttpServlet {
 	 */
 
 	// request는 요청 response은 응답.
-	// jsp에선 post로 넘기나  아래 post메소드의 doPost에서 받아서 doGet으로 보낸후 doGet에서 실행이 된다.
+	// jsp에선 post로 넘기나 아래 post메소드의 doPost에서 받아서 doGet으로 보낸후 doGet에서 실행이 된다.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
