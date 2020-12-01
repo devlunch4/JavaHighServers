@@ -18,6 +18,30 @@
 처리하는 서블릿 패턴은 '/cookieLoginServletdo.do 로 한다 -->
 
 
+<!-- 
+	쿠키값을 확인해서 USERID라는 쿠키가 있으면 해당 쿠키값을 아래쪽'userid'의 text객체에 
+	세팅하고 체크박스가 체크된 상태가 되도록 한다.
+	
+ -->
+ 
+ 
+ <%String cookieUserid=""; // 쿠키값이 저장될 변수 
+ String chk =""; //체크박스의 체크여부를 설정할 변수
+ 
+ Cookie[] cookies = request.getCookies();
+ if(cookies!=null){
+	 for(int i = 0; i < cookies.length;i++){
+		 if(cookies[i].getName().equals("USERID")){ //원하는 쿠키가 있으면
+			 cookieUserid= cookies[i].getValue(); //쿠키값 구하기
+			 chk = "checked";
+			 
+		 }
+	 }
+ }
+ 
+ 
+ %>
+
 	<form action="<%=request.getContextPath()%>/cookieLoginServlet.do">
 
 		<table>
@@ -25,7 +49,7 @@
 			<tr>
 				<td>ID :</td>
 				<td><input type="text" name="userid" placeholder="ID를 입력하세요"
-					value=""></td>
+					value="<%=cookieUserid%>"></td>
 			</tr>
 			<!-- 
 
@@ -40,7 +64,7 @@
 			 -->
 			<tr>
 				<td colspan="2"><input type="checkbox" name="chkid"
-					value="check">ID 기억하기</td>
+					value="check" <%=chk %>>ID 기억하기</td>
 			</tr>
 			<!-- 
 			
