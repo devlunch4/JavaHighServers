@@ -1,11 +1,14 @@
 package apple.session;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SessionAddServlet
@@ -24,6 +27,32 @@ public class SessionAddServlet extends HttpServlet {
 		// ==> 현재 세션이 존재하면 현재 세션 객체를 반환하고, 세션이 없으면 새로운 세션을 생성한다.
 		// 형식2) request.getSession(false);
 		// ==> 현재 세션이 존재하면 현재 세션 객체를 반환하고, 세션이 없으면 null을 반환한다.
+		HttpSession session = request.getSession();
+
+		// 2. Session 값 저장하기
+		// 형식) session 객체.setAttribute("key값", session값);
+		// ==> 'key'값은 문자열 , 'session값'은 모든 종류의 데이터
+		// 세션과 쿠키의 차이점은 쿠키의 경우 문자열만 사용한다.
+		// 쿠키는 클라이언트에 저장 // 세션은 서버에 저장//
+		session.setAttribute("testSession", "연습용세션입니다");
+		session.setAttribute("userName", "홍길동");
+		session.setAttribute("age", 30);
+
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=utf-8");
+
+		PrintWriter out = response.getWriter();
+
+		out.println("<html><head><meta charset='utf-8'>");
+		out.println("<title>Session 연습 </title>");
+		out.println("<body>");
+
+		out.println("<h2>Session 데이터가 저장 되었습니다.</h2><br><br>");
+		out.println("<a href='" + request.getContextPath() + "/03/sessionTest.jsp'>시작 문서로 이동</a>");
+
+		out.println("</body>");
+		out.println("</html>");
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

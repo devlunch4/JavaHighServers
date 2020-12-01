@@ -29,6 +29,7 @@
  String chk =""; //체크박스의 체크여부를 설정할 변수
  
  Cookie[] cookies = request.getCookies();
+ 
  if(cookies!=null){
 	 for(int i = 0; i < cookies.length;i++){
 		 if(cookies[i].getName().equals("USERID")){ //원하는 쿠키가 있으면
