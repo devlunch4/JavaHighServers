@@ -1,4 +1,4 @@
-package apple.json;
+package kr.or.ddit.json;
 
 import java.io.IOException;
 import java.io.PrintWriter;

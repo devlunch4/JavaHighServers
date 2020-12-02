@@ -1,4 +1,4 @@
-package apple.json;
+package kr.or.ddit.json;
 
 public class SampleVO {
 	private int num;
