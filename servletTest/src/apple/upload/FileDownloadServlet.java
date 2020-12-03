@@ -22,7 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 //3.FileInputStream객체를 이용하여 서버에서 파일을 읽어
 //response객체의 getOutputStream() 메서드로 구한 OutputStream객체로 출력한다.
 
-// 주석 찾아 적기!!!
+// 만약 다운 받ㅇ르 파일이 서버에 없으면 
+//ContentType을 'text/html; charset=utf-8'로 설정하고
+//'다운받을 파일이 없습니다.' 메시지를 응답으로 전달한다.
 
 @WebServlet("/fileDownloadServlet.do")
 public class FileDownloadServlet extends HttpServlet {

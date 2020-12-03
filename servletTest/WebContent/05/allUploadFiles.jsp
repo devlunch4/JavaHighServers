@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><%=request.getAttribute("memId") %>
-		님이 방금 업로드한 파일 목록들
+	<h1><%-- <%=request.getAttribute("memId") %> --%>
+		업로드한 전체 파일 목록들
 	</h1>
 	<table border="1">
 
