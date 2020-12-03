@@ -56,7 +56,7 @@ public class FileUploadServlet extends HttpServlet {
 		// 이용해서 구한다.
 		request.setCharacterEncoding("utf-8");
 		String memId = request.getParameter("memId");
-		System.out.println("파일이 아닌 데이터" + memId);
+		System.out.println("파일이 아닌 데이터 : " + memId);
 
 		// ------------------------------------------------
 		String fileName = ""; // 파일명이 저장될 변수
