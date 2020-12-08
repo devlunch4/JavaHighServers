@@ -1,39 +1,52 @@
+<%@page import="java.net.URLEncoder"%>
 <%@page import="apple2.member.vo.MemberVO"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	var btnAdd = document.getElementById("btnAdd");
+	btnAdd.onclick = function(){
+		location.href = "<%=request.getContextPath()%>/member/memberForm.do";
+	};
+}
+
+</script>
 </head>
 <body>
-	<h1>Test Controller사용 결과 페이지</h1>
-	주소창 입력후 결과 >>> http://localhost/servletTest2/member/memberList.do
-	<br>
-	<br>
-	<hr>
-	<%
-		//controller에서 보내온 데이터를 받는다. ==> request객체.getAttribute()메서드이용
+<h2>회원 목록 보기</h2>
+<table border="1">
+<thead>
+  <tr><td colspan="4"><input type="button" id="btnAdd" value="회원추가"></td></tr>
+  <tr>
+  	<th>ID</th><th>이름</th><th>전화</th><th>주소</th>
+  </tr>
+</thead>
+<tbody>
+<%
+	// 서블릿에서 만들어서 보낸 데이터를 보여준다.
+	List<MemberVO> memList = 
+		(List<MemberVO>)request.getAttribute("memList");
 
-		List<MemberVO> memList = (List<MemberVO>) request.getAttribute("memList");
+	for(MemberVO memVo : memList){
+%>
+	<tr>
+		<%-- <td><a href="<%=request.getContextPath()%>/member/memberView.do?mem_id=<%=memVo.getMem_id() %>"><%=memVo.getMem_id() %></a></td> --%>
+		<td><a href="<%=request.getContextPath()%>/member/memberView.do?mem_id=<%=URLEncoder.encode(memVo.getMem_id(), "utf-8") %>"><%=memVo.getMem_id() %></a></td>
+		<td><%=memVo.getMem_name() %></td>
+		<td><%=memVo.getMem_tel() %></td>
+		<td><%=memVo.getMem_addr() %></td>
+	</tr>
+<%		
+	}
+%>
+</tbody>
 
-		for (MemberVO memVo : memList) {
-	%>
-
-	<%=memVo.getMem_id()%>,
-	<br>
-	<%=memVo.getMem_name()%>,
-	<br>
-	<%=memVo.getMem_tel()%>,
-	<br><%=memVo.getMem_addr()%>
-
-
-	<%
-		}
-	%>
-
+</table>
 </body>
 </html>

@@ -43,6 +43,13 @@ public interface IMemberService {
 	public List<MemberVO> getAllMemberList();
 	
 	/**
+	 * 회원ID를 멤버변수로 받아서 해당 회원 정보를 반환하는 메서드
+	 * @param memId 검색할 회원ID
+	 * @return 검색된 회원의 정보가 저장될 MemberVO객체
+	 */
+	public MemberVO getMember(String memId);
+	
+	/**
 	 * 회원ID를 매개값으로 받아서 해당 회원의 개수를 반환하는 메서드
 	 * @param memId 검색할 회원 ID
 	 * @return 검색된 회원ID 개수

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import apple2.member.action.MemberListAction;
+import apple2.member.action.MemberListAction2;
 import apple2.member.service.IMemberService;
 import apple2.member.service.MemberServiceImpl;
 import apple2.member.vo.MemberVO;
@@ -52,7 +52,7 @@ public class WebController extends HttpServlet {
 			//실행 작업 완료후 view 페이를 받는다.
 			viewPage = action.process(request, response);
 			if(viewPage!=null) {
-				if(action.isredirect()) {//리다이렉트가 true인 경우
+				if(action.isRedirect()) {//리다이렉트가 true인 경우
 					response.sendRedirect(request.getContextPath() + viewPage);
 					
 				}else {//포워딩

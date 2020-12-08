@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import apple2.member.action.MemberListAction;
+import apple2.member.action.MemberListAction2;
 import apple2.member.web.IAction;
 
 /**
@@ -57,7 +57,7 @@ public class TestController2 extends HttpServlet {
 
 			
 			
-			 action = new MemberListAction();
+			 action = new MemberListAction2();
 			 viewPage = action.process(request, response); // view페이지 설정
 			 
 				// 서버를 실행후
