@@ -37,6 +37,15 @@ public class SessionLoginServlet extends HttpServlet {
 			// 회원이 아니면 세션에 아무것도 저장하지 않고
 			response.sendRedirect(contextPath + "/03/sessionResult.jsp");
 		}
+		
+		if (loginid.equals("1") && loginpw.equals("1")) {
+			session.setAttribute("saveid", loginid);
+			System.out.println(loginid + " 세션에 저장완료");
+			response.sendRedirect(contextPath + "/03/sessionResult.jsp");
+		} else {
+			// 회원이 아니면 세션에 아무것도 저장하지 않고
+			response.sendRedirect(contextPath + "/03/sessionResult.jsp");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

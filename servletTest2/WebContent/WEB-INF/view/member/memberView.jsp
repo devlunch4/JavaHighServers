@@ -66,6 +66,7 @@ $(function(){
 			<input type="button" id="btnUpdate" value="수정">
 			<input type="button" id="btnDelete" value="삭제">
 			<input type="button" value="회원목록" id="btnList">
+			<input type="button" value="이전화면" onClick="history.go(-1)">
 		</td>
 	</tr>
 </tbody>

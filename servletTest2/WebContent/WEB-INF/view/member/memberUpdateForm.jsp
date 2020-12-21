@@ -57,6 +57,7 @@ $(function(){
 			<input type="submit" value="저장">
 			<input type="reset" value="취소">
 			<input type="button" value="회원목록" id="btnList">
+			<input type="button" value="이전화면" onClick="history.go(-1)">
 		</td>
 	</tr>
 </tbody>
